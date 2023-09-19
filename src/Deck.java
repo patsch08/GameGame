@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 public class Deck {
-    public ArrayList <Card> deck = new ArrayList<Card>();
+    private ArrayList <Card> deck = new ArrayList<Card>();
     public Deck() {
         for(int i = 0; i < 4; i++) {
                 deck.add(new Card(10));
@@ -23,6 +23,9 @@ public class Deck {
             deck.set(0, deck.get(random));
             deck.set(random, temp);
         }
+    }
+    public boolean isEmpty(){
+        return deck.size() == 0;
     }
     public Card draw() {
         Card temp = deck.get(0);

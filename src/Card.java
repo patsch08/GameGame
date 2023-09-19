@@ -39,9 +39,7 @@ public class Card {
         }
         this.value = value;
     }
-    public int getValue() {
-        return this.value;
-    }
+    public int getValue() {return this.value;}
     public String getAnimal(){
         return this.animal;
     }
