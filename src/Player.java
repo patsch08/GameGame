@@ -40,6 +40,15 @@ public class Player {
     public void buyCard(Card card) {
         this.hand.add(card);
     }
+    public int hasMoney(int mon){
+        for(int i:money){
+            if(mon == i)return i;
+        }
+        return -1;
+    }
+    public void addCard(Card card){
+        if(card != null)hand.add(card);
+    }
     public void addMoney(int valueIdx, int quantity){
         if(valueIdx > 6 || valueIdx < 0 || quantity < 0 || quantity > 20){
             throw new IllegalArgumentException();
