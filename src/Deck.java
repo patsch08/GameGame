@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collections;
+
 public class Deck {
     private ArrayList <Card> deck = new ArrayList<Card>();
     public Deck() {
@@ -13,19 +15,14 @@ public class Deck {
                 deck.add(new Card(650));
                 deck.add(new Card(800));
                 deck.add(new Card (1000));
-                shuffle();
         }
+        shuffle();
     }
     public void shuffle() {
-        for(int i = 0; i < 1000; i++) {
-            int random = (int)(Math.random() * 40);
-            Card temp = deck.get(0);
-            deck.set(0, deck.get(random));
-            deck.set(random, temp);
-        }
+        Collections.shuffle(deck);
     }
     public boolean isEmpty(){
-        return deck.size() == 0;
+        return deck.isEmpty();
     }
     public Card draw() {
         Card temp = deck.get(0);
@@ -34,9 +31,5 @@ public class Deck {
     }
     public static void main(String[] args) {
         Deck deck = new Deck();
-        deck.shuffle();
-        for(int i = 0; i < 40; i++) {
-            System.out.println(deck.deck.get(i).getAnimal());
-        }
     }
 }
