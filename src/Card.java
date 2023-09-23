@@ -1,7 +1,19 @@
+/**
+ * The Card class represents a playing card in GameGame.
+ * Each card has a numerical value and an associated animal name.
+ */
 public class Card {
+    //numerical value of the card
     int value = 0;
+    //the animal it represents
     String animal = "";
-
+    /**
+     * Constructs a new Card object with the specified value.
+     * 
+     * @param value The numerical value of the card. Valid values are 10, 40, 90, 160, 250,
+     *              350, 500, 650, 800, and 1000.
+     * @throws IllegalArgumentException if an invalid value is provided.
+     */
     public Card(int value) {
         switch(value){
             case 10:
@@ -39,7 +51,18 @@ public class Card {
         }
         this.value = value;
     }
+    
+    /**
+     * Gets the numerical value of the card.
+     * 
+     * @return The numerical value of the card.
+     */
     public int getValue() {return this.value;}
+    /**
+    * Gets the represented animal.
+    * 
+    * @return The represented animal.
+    */
     public String getAnimal(){
         return this.animal;
     }
