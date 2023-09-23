@@ -3,7 +3,7 @@ public class Player {
     private String name;
     private int score;
     private ArrayList <Card> hand = new ArrayList<>();
-    private int[] money = new int[]{0,1,1,2,3,3,4,4,5,6};
+    private int[] money = new int[]{2,4,1,0,0,0};
     public Player(String name) {
         this.name = name;
         this.score = 0;
@@ -18,8 +18,11 @@ public class Player {
             }
             Card smallerNumber = hand.get(index);
             hand.set(index, hand.get(i));
-            hand.set(i, smallerNumber);
+            hand.set(i, hand.get(index));
         }
+    }
+    public ArrayList<Card> getHand(){
+        return hand;
     }
     public void printHand(){
         selectionSort();
@@ -30,8 +33,8 @@ public class Player {
         }
     }
     public boolean has(int card){
-        for(int i=0;i<hand.size();i++){
-            if(hand.get(i).getValue() == card){
+        for (Card value : hand) {
+            if (value.getValue() == card) {
                 return true;
             }
         }
@@ -50,7 +53,7 @@ public class Player {
         if(card != null)hand.add(card);
     }
     public void addMoney(int valueIdx, int quantity){
-        if(valueIdx > 6 || valueIdx < 0 || quantity < 0 || quantity > 20){
+        if(valueIdx > 5 || valueIdx < 0 || quantity < 0 || quantity > 20){
             throw new IllegalArgumentException();
         }
         money[valueIdx] += quantity;
@@ -75,11 +78,10 @@ public class Player {
         return switch (index) {
             case 0 -> 0;
             case 1 -> 10;
-            case 2 -> 20;
-            case 3 -> 50;
-            case 4 -> 100;
-            case 5 -> 200;
-            case 6 -> 500;
+            case 2 -> 50;
+            case 3 -> 100;
+            case 4 -> 200;
+            case 5 -> 500;
             default -> throw new IllegalArgumentException("Invalid denomination index");
         };
     }
