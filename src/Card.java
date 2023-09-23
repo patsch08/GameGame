@@ -4,9 +4,9 @@
  */
 public class Card {
     //numerical value of the card
-    int value = 0;
+    int value;
     //the animal it represents
-    String animal = "";
+    String animal;
     /**
      * Constructs a new Card object with the specified value.
      * 
