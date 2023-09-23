@@ -18,7 +18,7 @@ public class Player {
             }
             Card smallerNumber = hand.get(index);
             hand.set(index, hand.get(i));
-            hand.set(i, hand.get(index));
+            hand.set(i, smallerNumber);
         }
     }
     public void printHand(){

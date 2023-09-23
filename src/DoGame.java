@@ -1,10 +1,13 @@
 import java.util.*;
 public class DoGame {
+    public static void main(String[] args) {
+        doGame(3);
+    }
     private static Scanner scanner = new Scanner(System.in);
     private static int current = 1;
     private static Player[] players = new Player[3];
     private static Deck deck = new Deck();
-    private static char[] action = new char[3];
+    private static int[] action = new int[3];
     private static Card card = deck.draw();
     public static void doGame(int player){
         if(player > 0&&5 >= player){
@@ -95,8 +98,8 @@ public class DoGame {
             return 0;
         }
         else if(input != 0 && input != current){
-            action[0] = (char)(current+48);
-            action[1] = (char)(input+48);
+            action[0] = current;
+            action[1] = input;
             return input;
         }
         return -1;
@@ -104,8 +107,5 @@ public class DoGame {
     public static boolean doTrade(){
         System.out.println("Which animal do you want to trade?");
         return true;
-    }
-    public static void main(String[] args) {
-        choice();
     }
 }
